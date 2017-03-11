@@ -4,14 +4,13 @@ if (window.console) {
 
 $(document).ready(function(){
 
-
          $('#btn').on("click",function(){
          jsRoutes.controllers.signupController.signup().ajax({
                       success: function(data){
                         $('#data').html(data);
                       },
                       error: function(){
-                      $('#data').html("hello");
+                      $('#data').html("error");
                       alert("fail")
                     }
 
@@ -27,7 +26,7 @@ $(document).ready(function(){
                               $('#data').html(data);
                             },
                             error: function(){
-                            $('#data').html("hello");
+                            $('#data').html("error");
                             alert("fail")
                           }
 
