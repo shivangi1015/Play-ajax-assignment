@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
  $('#signUp').on("click",function(){
-                alert("clicked")
+               // alert("clicked")
                 jsRoutes.controllers.signupController.addPerson($('#username').val(),$('#fname').val(), $('#lname').val(),$('#email').val(),$('#password').val(),$('#gender').val(),$('#dob').val()).ajax({
                             success: function(data){
-                            alert("success")
+                           // alert("success")
                               $('#data').html(data);
 
                             },

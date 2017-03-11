@@ -13,7 +13,8 @@
         <title>MyApplication</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css")">
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css")">
 
 
         <script src="@routes.Assets.versioned("stylesheets/bootstrap-3.3.7-dist/js/jquery.js")" type="text/javascript"></script>
@@ -28,16 +29,30 @@
         @* And here's where we render the `Html` object containing
          * the page content. *@
         <div id="data">
-        <div style="background-color: lightgrey">
-            <div style="text-align:center; margin-top: 50px; font-size: 50px"><strong>Welcome to my website!!</strong></div>
-            <div class="container" style="margin-top: 100px;margin-left: 50px;text-align:center; ">
+            <div class="jumbotron text-center">
+                <h1>Welcome</h1>
+                <p>Signup/Login Application</p>
+                <form class="form-inline">
+                    <div class="input-group">
 
-                <input type="button" id="btn1" value="Sign up">
-
-                <input type="button" id="btn" value="Login">
-
+                        <div class="input-group-btn">
+                            <button type="button" id ="btn1" class="btn btn-danger">Sign Up</button>
+                            <button type="button" id ="btn" class="btn btn-danger">Sign In</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4" >
+                    <img src="@routes.Assets.versioned("images/play_full_color.png")" class="img-responsive" alt="playAvatar" >
+                </div>
+
+                <div class="col-md-2" >
+                </div>
+                <div class="text-center col-sm-12 col-md-6" style="margin-top:60px;">
+                <h1>Ajax in the Play framework</h1>
+                <h5>The Play framework allows you to easily perform Ajax requests, and is shipped with jQuery</h5></div>
+            </div>
         </div>
     </body>
 </html>

@@ -29,8 +29,16 @@ class signupController @Inject() extends Controller {
   def addPerson(username: String,fname: String,lname: String,email: String,password: String,gender: String,dob: String)= Action { implicit request =>
 
     val userData = UserInfo(username,fname,lname,email,password,gender,dob)
+    val users = services.UserOperation.getUsers
+    val flag = users.map( x=> if(x.username == userData.username) true else false)
+    if(flag.forall( _ == false)) {
       UserOperation.addUser(userData)
       Ok(views.html.Profile(userData))
+    }
+    else{
+      Ok(views.html.main())
+
+    }
     }
 
 }

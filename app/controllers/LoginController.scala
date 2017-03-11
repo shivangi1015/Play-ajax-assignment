@@ -27,14 +27,6 @@ class LoginController @Inject() extends Controller {
     Ok(views.html.welcome())
   }
 
-  val userForm: Form[LoginData] = Form {
-    mapping(
-      "username" -> nonEmptyText,
-      "password" -> nonEmptyText
-
-
-    )(LoginData.apply)(LoginData.unapply)
-  }
 
   val users = UserOperation.getUsers
 
@@ -45,24 +37,21 @@ class LoginController @Inject() extends Controller {
   }
 
 
-  def processForm= Action{ implicit request =>
-    userForm.bindFromRequest.fold (
-      formWithErrors => {
-        Logger.info("error")
-        Redirect(routes.HomeController.index()).flashing("Error Message"->"Incorrect username or password")
-      },
-      userData => {
+  def processForm(username: String)= Action{ implicit request =>
 
-        val flag = users.map(x => if(x.username == userData.username && x.password == userData.password) true else false)
+    val userData = services.UserOperation.getUsers
+
+
+        val flag = users.map(x => if(x.username == username) true else false)
         if(flag.contains(true)){
 
-          Redirect(routes.LoginController.showProfile(userData.username)).withSession("currentUser"->userData.username).flashing("msg"->"Login Successful")
+          Redirect(routes.LoginController.showProfile(username))
         }
         else
-          Redirect(routes.HomeController.index()).flashing("msg"->"Incorrect username or password")
+          Redirect(routes.HomeController.index())
 
-      }
-    )
+
+
   }
 
 

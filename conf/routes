@@ -18,7 +18,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 POST     /                           controllers.HomeController.index
 
-POST /showProfile                        controllers.LoginController.processForm
+POST /showProfile                        controllers.LoginController.processForm(username:String)
 GET /profile                            controllers.LoginController.showProfile(username:String)
 
 GET   /javascriptRoutes            controllers.JavascriptRoute.javascriptRoutes
