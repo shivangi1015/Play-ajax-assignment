@@ -8,10 +8,7 @@ import play.api.mvc.{Action, Controller}
   */
 class AjaxController @Inject() extends Controller{
 
-  def front = Action {implicit request=>
 
-    Ok(views.html.front())
-  }
   def signin = Action { implicit request =>
     Ok(views.html.welcome())
   }

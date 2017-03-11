@@ -4,13 +4,13 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
-@(title: String)(content: Html)
+@()
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         @* Here's where we render the page title `String`. *@
-        <title>@title</title>
+        <title>MyApplication</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
         <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
@@ -27,6 +27,15 @@
         @* And here's where we render the `Html` object containing
          * the page content. *@
         <div id="data"></div>
-        @content
+        <div style="background-color: lightgrey">
+            <div style="text-align:center; margin-top: 50px; font-size: 50px"><strong>Welcome to my website!!</strong></div>
+            <div class="container" style="margin-top: 100px;margin-left: 50px;text-align:center; ">
+
+                <button type="button" class="btn btn-success" onclick="location.href = '/login';">Sign in</button>
+
+                <button type="button" class="btn btn-success" onclick="location.href = '/sign';">sign up</button>
+
+            </div>
+        </div>
     </body>
 </html>
