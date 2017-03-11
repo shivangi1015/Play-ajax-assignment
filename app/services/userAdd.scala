@@ -14,7 +14,9 @@ object UserOperation {
 
   listOfUsers.append(user1)
 
-  def addUser(user:UserInfo) ={ listOfUsers.append(user) }
+  def addUser(user:UserInfo) ={ listOfUsers.append(user)
+  println(listOfUsers)
+  }
 
 
 

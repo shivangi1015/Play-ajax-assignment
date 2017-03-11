@@ -16,17 +16,15 @@ GET     /sign                           controllers.signupController.signup
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-POST    /addPerson                    controllers.signupController.addPerson
-
-
 POST     /                           controllers.HomeController.index
 
 POST /showProfile                        controllers.LoginController.processForm
 GET /profile                            controllers.LoginController.showProfile(username:String)
 
 GET   /javascriptRoutes            controllers.JavascriptRoute.javascriptRoutes
-GET   /signin                      controllers.AjaxController.signin
-GET   /signup                      controllers.AjaxController.signup
+
+POST     /welcome/*lname           controllers.signupController.addPerson(username,fname,lname,email,password,gender,dob)
+
 
 
 

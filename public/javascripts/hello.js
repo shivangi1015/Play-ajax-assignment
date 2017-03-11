@@ -4,7 +4,8 @@ if (window.console) {
 
 $(document).ready(function(){
 
-         $('#btn').on("click",function(){
+
+         $('#btn1').on("click",function(){
          jsRoutes.controllers.signupController.signup().ajax({
                       success: function(data){
                         $('#data').html(data);
@@ -20,8 +21,8 @@ $(document).ready(function(){
 
       })
 
-      $('#btn1').on("click",function(){
-                jsRoutes.controllers.LoginController.signin().ajax({
+      $('#btn').on("click",function(){
+                jsRoutes.controllers.LoginController.login().ajax({
                             success: function(data){
                               $('#data').html(data);
                             },

@@ -26,23 +26,11 @@ class signupController @Inject() extends Controller {
   }
 
 
-  val userForm: Form[UserInfo] = Form(
-    mapping(
-      "username" -> nonEmptyText,
-      "fname" -> nonEmptyText,
-      "lname" -> nonEmptyText,
-      "email" -> nonEmptyText,
-      "password" -> nonEmptyText,
-      "gender" -> nonEmptyText,
-      "dob" -> nonEmptyText
-    )(UserInfo.apply)(UserInfo.unapply)
-  )
+  def addPerson(username: String,fname: String,lname: String,email: String,password: String,gender: String,dob: String)= Action { implicit request =>
 
-  def addPerson= Action { implicit request =>
-
-      val user:UserInfo = userForm.bindFromRequest.get
-      UserOperation.addUser(user)
-      Ok(views.html.Profile(user))
+    val userData = UserInfo(username,fname,lname,email,password,gender,dob)
+      UserOperation.addUser(userData)
+      Ok(views.html.Profile(userData))
     }
 
 }
